@@ -2,10 +2,20 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
-export const environment = {
-  production: false
-};
+import env from './.env';
 
+export const environment = {
+  production: false,
+  version: env.npm_package_version + '-dev',
+  masterServerUrl: 'http://gatewaydevapi.corp.osoftec.com/api/master',
+  commonServerUrl: 'http://gatewaydevapi.corp.osoftec.com/api/common',
+  serverUrl: 'http://gatewaydevapi.corp.osoftec.com/api/security',
+  coreBaseApiUrl: 'http://gatewaydevapi.corp.osoftec.com/api/base',
+  envName: 'DEV',
+  RazorKey: 'rzp_live_NsPdlgJCH7sDYM'
+
+  
+}
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
