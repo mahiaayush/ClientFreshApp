@@ -1,0 +1,7 @@
+{
+  "name": "ClientFreshApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
