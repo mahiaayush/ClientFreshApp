@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { AuthService } from '@app/core';
+//import { AuthService } from '@app/core';
 import { ToastrService } from 'ngx-toastr';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -15,7 +15,7 @@ export class ChangePasswordComponent implements OnInit {
   password;
   show = false;
   constructor(private formBuilder: FormBuilder,
-    public activeModal: NgbActiveModal, private authService: AuthService, private toastrService: ToastrService
+    public activeModal: NgbActiveModal, /*private authService: AuthService,*/ private toastrService: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -67,37 +67,38 @@ export class ChangePasswordComponent implements OnInit {
       this.isLoading = false;
       return;
     }
-    var UserId = this.authService.currentUserValue.UserId;
-    var existpassword = this.authService.functionencrypt(this.f.userexistpassword.value);
-    var newPassword = this.authService.functionencrypt(this.f.usernewpassword.value);
 
-    this.authService.CheckExistPassword(UserId, existpassword)
-      .subscribe(
-        data => {
-          var response = data.Data;
-          if (response) {
+    // var UserId = this.authService.currentUserValue.UserId;
+    // var existpassword = this.authService.functionencrypt(this.f.userexistpassword.value);
+    // var newPassword = this.authService.functionencrypt(this.f.usernewpassword.value);
 
-            this.authService.ChangeExistPassword(UserId, newPassword)
-              .subscribe(
-                res => {
-                  var response2 = res.Data;
-                  if (response2) {
-                    this.authService.currentUserValue.IsTempPassword = false;
-                    this.toastrService.success('Password changed successfully');
-                    this.isLoading = false;
-                    this.activeModal.dismiss('Cross click');
-                    return false;
-                  }
-                });
-          }
-          else {
+    // this.authService.CheckExistPassword(UserId, existpassword)
+    //   .subscribe(
+    //     data => {
+    //       var response = data.Data;
+    //       if (response) {
+    //         console.log(' cone need to be implementing..');
+    //         // this.authService.ChangeExistPassword(UserId, newPassword)
+    //         //   .subscribe(
+    //         //     res => {
+    //         //       var response2 = res.Data;
+    //         //       if (response2) {
+    //         //         this.authService.currentUserValue.IsTempPassword = false;
+    //         //         this.toastrService.success('Password changed successfully');
+    //         //         this.isLoading = false;
+    //         //         this.activeModal.dismiss('Cross click');
+    //         //         return false;
+    //         //       }
+    //         //     });
+    //       }
+    //       else {
           
-            this.toastrService.error('Current Password is not correct. Please reenter');
-            this.isLoading = false;
-            return false;
-          }
+    //         this.toastrService.error('Current Password is not correct. Please reenter');
+    //         this.isLoading = false;
+    //         return false;
+    //       }
 
-        });
+    //     });
 
   }
 

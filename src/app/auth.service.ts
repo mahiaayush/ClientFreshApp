@@ -1,19 +1,20 @@
 import { Injectable } from '@angular/core';
 import { of, Observable, throwError, BehaviorSubject, observable } from 'rxjs';
-//import { User } from '../../core/models/user.model';
+
+
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '@env/environment';
 import { map, tap } from 'rxjs/operators';
 import * as CryptoJS from 'crypto-js';
 import { formatDate } from '@angular/common';
 
+import { User } from './modules/user.model';
+
 export class ILoginContext {
   username: string;
   password: string;
   token: string;
 }
-
-
 const defaultUser = {
   username: 'rizwan',
   password: '12345',
@@ -27,8 +28,8 @@ export class AuthService {
   private httpOptions = { headers: new HttpHeaders().set('Content-Type', 'application/json') };
   token: string;
   private currentUserSubject: BehaviorSubject<User>;
-  public currentUser: Observable<User>;
-    
+  public currentUser: Observable<User>; 
+
   constructor(private http: HttpClient) {
 
     this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));

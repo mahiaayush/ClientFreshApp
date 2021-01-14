@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { ForgotpasswordComponent } from './pages/forgotpassword/forgotpassword.component';
-import { SharedModule } from '@app/shared';
+//import { SharedModule } from '@app/shared';
 
 import { AuthRoutingModule } from './auth-routing.module';
 import { ChangePasswordComponent } from './pages/change-password/change-password.component';
@@ -29,7 +29,7 @@ import { WelcomeModalComponent } from './tosca/welcome-modal/welcome-modal.compo
   imports: [
     CommonModule,
     AuthRoutingModule,
-    SharedModule
+    //SharedModule
   ],
    exports: [
      ChangePasswordComponent,

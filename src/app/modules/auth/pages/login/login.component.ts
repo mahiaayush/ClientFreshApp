@@ -4,7 +4,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { tap, delay, finalize, catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { first } from 'rxjs/operators';
-import { AuthService } from '@app/core';
+import { AuthService } from './../../../../auth.service';
 import * as CryptoJS from 'crypto-js';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { MultipleClientComponent } from '../multiple-client/multiple-client.component';

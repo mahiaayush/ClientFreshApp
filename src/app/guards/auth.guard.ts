@@ -6,9 +6,9 @@
 
 import { Injectable } from '@angular/core';
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import { projectkey } from '@env/projectkey';
+import { projectkey } from '@env/projectKey';
 
-import { AuthService } from './auth.service';
+import { AuthService } from './../auth.service';
 import { Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
