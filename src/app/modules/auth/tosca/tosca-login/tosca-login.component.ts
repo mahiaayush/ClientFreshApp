@@ -4,10 +4,10 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { tap, delay, finalize, catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { first } from 'rxjs/operators';
-import { AuthService } from '@app/core';
+import { AuthService } from '@app/auth.service';
 import * as CryptoJS from 'crypto-js';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
-import { MultipleClientComponent } from 'app/modules/auth/pages/multiple-client/multiple-client.component';
+//import { MultipleClientComponent } from 'app/modules/auth/pages/multiple-client/multiple-client.component';
 import { Title } from '@angular/platform-browser';
 import { DOCUMENT } from '@angular/common';
 
@@ -72,7 +72,7 @@ export class ToscaLoginComponent implements OnInit {
           if (data != null && data.ResponseMessage === "Success") {
            // debugger;
             if (data.ClientCount > 1) {
-              this.modalRef = this.modalService.open(MultipleClientComponent, { size: 'lg', backdrop: 'static' });
+              //this.modalRef = this.modalService.open(MultipleClientComponent, { size: 'lg', backdrop: 'static' });
             }
             else {
               this.router.navigate(['/dashboard/home']);
@@ -130,7 +130,7 @@ export class ToscaLoginComponent implements OnInit {
   }
 
   multiple() {
-    this.modalRef = this.modalService.open(MultipleClientComponent, { size: 'lg', backdrop: 'static' });
+    //this.modalRef = this.modalService.open(MultipleClientComponent, { size: 'lg', backdrop: 'static' });
   }
 
 }

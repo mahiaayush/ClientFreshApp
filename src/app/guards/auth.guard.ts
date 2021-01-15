@@ -24,7 +24,7 @@ export class AuthGuard implements CanActivate {
      if (currentUser) {
           return true;
     }
-
+    debugger
     if (projectkey.projectname == "tosca") {
       this.router.navigate(['/auth/tosca-login'], { queryParams: { returnUrl: state.url } });
     }

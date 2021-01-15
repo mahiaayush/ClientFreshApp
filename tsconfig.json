@@ -14,12 +14,12 @@
     "lib": [
       "es2018",
       "dom"
-    ]
-  },
-  "paths": {
-      "@app/*": [ "app/*" ],
-      "@env/*": [ "environments/*" ]
+    ],
+    "paths": {
+      "@app/*": [ "src/app/*" ],
+      "@env/*": [ "src/environments/*" ]
     },
+  },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
     "strictInjectionParameters": true

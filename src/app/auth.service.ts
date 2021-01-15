@@ -3,6 +3,7 @@ import { of, Observable, throwError, BehaviorSubject, observable } from 'rxjs';
 
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 import { environment } from '@env/environment';
 import { map, tap } from 'rxjs/operators';
 import * as CryptoJS from 'crypto-js';
@@ -31,7 +32,7 @@ export class AuthService {
   public currentUser: Observable<User>; 
 
   constructor(private http: HttpClient) {
-
+    debugger
     this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
     this.currentUser = this.currentUserSubject.asObservable();
 

@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-import { AuthService } from '@app/core';
-import { SubscriptionPromotionService } from '@app/modules/plan/pages/services/subscription-promotion.services';
-import { ClientRegistrationModal } from '@app/core/models/clientRegistration.model';
+// import { AuthService } from '@app/core';
+// import { SubscriptionPromotionService } from '@app/modules/plan/pages/services/subscription-promotion.services';
+// import { ClientRegistrationModal } from '@app/core/models/clientRegistration.model';
 import { TranslateService } from '@ngx-translate/core'; 
 import { first } from 'rxjs/operators';
 
@@ -19,7 +19,7 @@ import { first } from 'rxjs/operators';
 export class RegisterComponent implements OnInit {
 
   registerform: FormGroup;
-  userData: ClientRegistrationModal= new ClientRegistrationModal();
+  //userData: ClientRegistrationModal= new ClientRegistrationModal();
   returnUrl: string;
   error: string;
   isLoading: boolean;

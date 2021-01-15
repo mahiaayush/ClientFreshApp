@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-// import { AuthService } from '@app/core';
+
+import { AuthService } from '@app/auth.service';
 // import { SubscriptionPromotionService } from '@app/modules/plan/pages/services/subscription-promotion.services';
 // import { ClientRegistrationModal } from '@app/core/models/clientRegistration.model';
 import { TranslateService } from '@ngx-translate/core';
@@ -30,7 +31,7 @@ export class ToscaRegisterComponent implements OnInit {
   EntityID: number; UserAlertID: number;
   validate: boolean = true;
   modalRef: NgbModalRef;
-  constructor(public modalService: NgbModal, private formBuilder: FormBuilder, public translate: TranslateService, private authService: AuthService, private subscriptionService: SubscriptionPromotionService, private router: Router, private toastrService: ToastrService, private titleService: Title) {
+  constructor(public modalService: NgbModal, private formBuilder: FormBuilder, public translate: TranslateService, private authService: AuthService, /*private subscriptionService: SubscriptionPromotionService,*/ private router: Router, private toastrService: ToastrService, private titleService: Title) {
     //this.buildForm();
     titleService.setTitle("LAMPS Tosca");
     this.registerform = this.formBuilder.group({
@@ -160,37 +161,37 @@ export class ToscaRegisterComponent implements OnInit {
     let Name = "Users";
 
     // let entityId: number;
-    this.subscriptionService.getEntityDetails(ClientId, Name).subscribe(res => {
-      if (res.message == "Success") {
-        this.EntityID = res.data.id;
-        // alert(res.data.id);
-        Name = "User Registration Request - To User";
-        this.subscriptionService.getUserAlertDetails(ClientId, Name).subscribe(result => {
-          if (result.message == "Success") {
-            this.UserAlertID = result.data.id;
-            let EntityKeyId = UserId;
+    // this.subscriptionService.getEntityDetails(ClientId, Name).subscribe(res => {
+    //   if (res.message == "Success") {
+    //     this.EntityID = res.data.id;
+    //     // alert(res.data.id);
+    //     Name = "User Registration Request - To User";
+    //     this.subscriptionService.getUserAlertDetails(ClientId, Name).subscribe(result => {
+    //       if (result.message == "Success") {
+    //         this.UserAlertID = result.data.id;
+    //         let EntityKeyId = UserId;
 
-            this.subscriptionService.SaveAlertSystem(this.UserAlertID, this.EntityID, EntityKeyId, Client).subscribe(res => {
-              if (res.message == "Success") {
-                this.isLoading = false;
-                this.toastrService.success("User is registered successfully");
-                //this.router.navigate(['/auth/tosca-login']);
-                this.modalRef = this.modalService.open(WelcomeModalComponent, { size: 'lg', backdrop: 'static' });
-              }
-              else {
-                this.toastrService.success("Error");
-              }
-            });
-          }
-          else {
-            this.UserAlertID = 0;
-          }
-        });
-      }
-      else {
-        this.EntityID = 0;
-      }
-    });
+    //         this.subscriptionService.SaveAlertSystem(this.UserAlertID, this.EntityID, EntityKeyId, Client).subscribe(res => {
+    //           if (res.message == "Success") {
+    //             this.isLoading = false;
+    //             this.toastrService.success("User is registered successfully");
+    //             //this.router.navigate(['/auth/tosca-login']);
+    //             this.modalRef = this.modalService.open(WelcomeModalComponent, { size: 'lg', backdrop: 'static' });
+    //           }
+    //           else {
+    //             this.toastrService.success("Error");
+    //           }
+    //         });
+    //       }
+    //       else {
+    //         this.UserAlertID = 0;
+    //       }
+    //     });
+    //   }
+    //   else {
+    //     this.EntityID = 0;
+    //   }
+    // });
 
 
 
